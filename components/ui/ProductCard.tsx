@@ -61,7 +61,7 @@ export const ProductCard = ({
         {/* Badges */}
         <div className="absolute top-4 left-4 flex flex-col gap-2">
           {isNew && (
-            <span className="bg-burgundy text-white text-xs uppercase tracking-wider py-1 px-2">
+            <span className="bg-gold text-white text-xs uppercase tracking-wider py-1 px-2">
               New
             </span>
           )}
@@ -72,7 +72,7 @@ export const ProductCard = ({
           )}
         </div>
         
-        {/* Hover Actions */}
+        {/* over Actions */}
         <div className="absolute inset-0 bg-black bg-opacity-30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
           <div className="flex gap-2">
             <button className="w-10 h-10 rounded-full bg-white flex items-center justify-center hover:bg-gold hover:text-white transition-all duration-300">

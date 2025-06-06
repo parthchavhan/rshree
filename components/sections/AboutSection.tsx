@@ -8,25 +8,25 @@ import { Award, Gem, Clock, Shield } from 'lucide-react';
 const features = [
   {
     id: 1,
-    icon: <Gem className="w-6 h-6 text-brugandy" />,
+    icon: <Gem className="w-6 h-6 text-gold" />,
     title: "Premium Quality",
     description: "Only the finest materials and gemstones are used in our jewelry pieces."
   },
   {
     id: 2,
-    icon: <Award className="w-6 h-6 text-brugandy" />,
+    icon: <Award className="w-6 h-6 text-gold" />,
     title: "Expert Craftsmanship",
     description: "Each piece is meticulously crafted by our skilled artisans with decades of experience."
   },
   {
     id: 3,
-    icon: <Clock className="w-6 h-6 text-brugandy" />,
+    icon: <Clock className="w-6 h-6 text-gold" />,
     title: "Timeless Designs",
     description: "Our designs transcend trends, offering elegance that lasts a lifetime."
   },
   {
     id: 4,
-    icon: <Shield className="w-6 h-6 text-brugandy" />,
+    icon: <Shield className="w-6 h-6 text-gold" />,
     title: "Certified Authenticity",
     description: "Every gemstone and diamond comes with certification of authenticity and quality."
   }
@@ -67,7 +67,7 @@ export const AboutSection = () => {
           
           {/* Content Side */}
           <motion.div style={{ opacity: textOpacity, y: textY }}>
-            <span className="text-brugandy uppercase tracking-wider font-medium">Our Heritage</span>
+            <span className="text-gold uppercase tracking-wider font-medium">Our Heritage</span>
             <h2 className="font-serif text-4xl mb-6 mt-2">Crafting Elegance Since 1952</h2>
             <p className="text-gray-700 mb-8">
               For over seven decades,Rshree has been synonymous with unparalleled craftsmanship and 

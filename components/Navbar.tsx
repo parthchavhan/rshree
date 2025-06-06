@@ -44,7 +44,7 @@ export const Navbar = () => {
   return (
     <header 
       className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white shadow-md py-3' : 'bg-transparent py-5'
+        isScrolled ? 'bg-burgundy shadow-md py-3' : 'bg-transparent py-5'
       }`}
     >
       <div className="container-custom flex items-center justify-between">
@@ -60,7 +60,7 @@ export const Navbar = () => {
               <Link 
                 href={link.href}
                 className={`font-medium text-sm ${
-                  isScrolled ? 'text-charcoal' : 'text-white'
+                  isScrolled ? 'text-gold' : 'text-white'
                 } hover:text-gold transition-colors flex items-center`}
               >
                 {link.title}

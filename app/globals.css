@@ -60,7 +60,7 @@ body {
   }
 
   .gold-underline {
-    @apply relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-16 after:bg-[#0c2316];
+    @apply relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-16 after:bg-gold;
   }
 
   .animate-on-scroll {
