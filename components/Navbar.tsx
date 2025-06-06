@@ -50,7 +50,7 @@ export const Navbar = () => {
       <div className="container-custom flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="relative z-20">
-          <Image src="/logo.jpg" alt="Rshree Logo" width={200} height={10} />
+          <Image src="/logo.jpg" alt="Rshree Logo" width={150} height={10} />
         </Link>
 
         {/* Desktop Navigation */}
