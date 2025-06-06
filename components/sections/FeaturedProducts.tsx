@@ -129,8 +129,8 @@ export const FeaturedProducts = () => {
               onClick={() => setActiveFilter(category.id)}
               className={`px-4 py-2 rounded-sm transition-colors duration-300 ${
                 activeFilter === category.id 
-                  ? 'bg-gold text-white' 
-                  : 'bg-white text-charcoal hover:bg-gold hover:text-white'
+                  ? 'bg-burgundy text-white' 
+                  : 'bg-white text-charcoal hover:bg-burgundy hover:text-white'
               }`}
             >
               {category.label}
