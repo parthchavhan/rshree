@@ -1,0 +1,44 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../app/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Category {
+  id        String    @id @default(uuid())
+  name      String    @unique
+  products  Product[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model Product {
+  id            String     @id @default(uuid())
+  name          String
+  shortDesc     String?    // Optional short description
+  longDesc      String?    // Optional long description
+  images        String[]   // Array of image URLs
+  featured      Boolean    @default(false)
+  note          String?    // Extra notes
+  faq           Json?      // FAQs as key-value (question-answer)
+  category      Category   @relation(fields: [categoryId], references: [id])
+  categoryId    String
+  reviews       Review[]   // One-to-many relationship
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+}
+
+model Review {
+  id        String   @id @default(uuid())
+  product   Product  @relation(fields: [productId], references: [id])
+  productId String
+  name      String   // Reviewer name
+  rating    Int      // Rating out of 5
+  comment   String
+  createdAt DateTime @default(now())
+}
+

@@ -47,7 +47,7 @@ export const Footer = () => {
           <div>
             <h4 className="text-lg font-serif mb-6 text-gold">Information</h4>
             <ul className="space-y-3">
-              {['About Us', 'Contact Us', 'Shipping & Returns', 'Privacy Policy', 'Terms & Conditions'].map((item, index) => (
+              {['About Us', 'Contact Us'].map((item, index) => (
                 <li key={index}>
                   <Link 
                     href="#" 
