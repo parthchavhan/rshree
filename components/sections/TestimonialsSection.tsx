@@ -15,11 +15,11 @@ import 'swiper/css/pagination';
 const testimonials = [
   {
     id: 1,
-    name: "Emily Johnson",
+    name: "Yashodhara Enz",
     role: "Bride",
     image: "https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750",
     stars: 5,
-    text: "The engagement ring I purchased fromRshree exceeded all my expectations. The attention to detail and craftsmanship is extraordinary. I receive compliments everywhere I go!"
+    text: "Out of all the gold stores in Udaipur - this is the one to go to. They are so kind, helpful and give a fair price for beautiful pieces. Glad to have found Radha Shree"
   },
   {
     id: 2,

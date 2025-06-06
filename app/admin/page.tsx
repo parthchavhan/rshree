@@ -1,10 +1,10 @@
-import { getSheetData } from "../api/route";
+import { getSheetData } from "../lib/googleSheets";
 
 export default async function AdminPage() {
   const sheetId = "1KTPogtnv9QeekzW6xcclRaObyBxFmU1Z25qIspVXdjI";
   const range = "Sheet1!A1:D10";
-
-  const data = await getSheetData(sheetId, range);
+  
+  const data: string[][] = await getSheetData(sheetId, range);
 
   return (
     <div className="p-4">
