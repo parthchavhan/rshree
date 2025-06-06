@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+@import '../assets/css/spacing';
+@import '../assets/css/style';
+@import '../assets/css/responsive.css';
+
 :root {
   --foreground-rgb: 12, 35, 22;
   --background-rgb: 184, 169, 146;
