@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build && npm run prisma",
+    "dev": "npm run prisma && next dev",
+    "build": "npm run prisma && next build",
+    "postinstall": "npm run prisma",
     "start": "next start",
     "lint": "next lint",
     "prisma": "prisma generate"
