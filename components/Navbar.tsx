@@ -38,7 +38,7 @@ export const Navbar = () => {
     { title: 'Bridal', href: '#' },
     { title: 'Diamonds', href: '#' },
     { title: 'About', href: '#' },
-    { title: 'Contact', href: '#' }
+    { title: 'Contact', href: '/contact' }
   ];
 
   return (
