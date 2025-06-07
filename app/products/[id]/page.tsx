@@ -1,9 +1,34 @@
-import { prisma } from "@/app/lib/prisma";
+import prisma from "@/app/lib/prisma";
 import { notFound } from "next/navigation";
+import { Key, ReactElement, JSXElementConstructor, ReactNode, ReactPortal, AwaitedReactNode } from "react";
 
 type Props = {
   params: { id: string };
 };
+
+interface FAQ {
+  [question: string]: string; 
+}
+
+interface Review {
+  id: string;
+  name: string;
+  rating: number;
+  comment: string;
+  createdAt: Date; 
+}
+
+interface Product {
+  id: string;
+  name: string;
+  images: string[];
+  shortDesc?: string;
+  longDesc?: string;
+  note?: string;
+  category: { name: string };
+  faq?: FAQ;
+  reviews: Review[];
+}
 
 export default async function ProductPage({ params }: Props) {
   const product = await prisma.product.findUnique({
@@ -27,11 +52,11 @@ export default async function ProductPage({ params }: Props) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
           {/* Images */}
           <div className="space-y-4">
-            {product.images.map((img, i) => (
+            {product.images.map((img: string | undefined, i: Key | null | undefined) => (
               <img
-                key={i}
+                key={i?.toString()}
                 src={img}
-                alt={`Product Image ${i + 1}`}
+                alt={`Product Image ${Number(i) + 1}`}
                 className="w-full rounded-lg shadow-lg border border-[#cdeae1]"
               />
             ))}
@@ -65,8 +90,8 @@ export default async function ProductPage({ params }: Props) {
             <div className="space-y-3">
               {Object.entries(product.faq).map(([q, a]) => (
                 <div key={q}>
-                  <p className="font-medium text-[#084236]">{q}</p>
-                  <p className="text-[#0f5742]">{a}</p>
+                  <p className="font-medium text-[#084236]">{q as string}</p>
+                  <p className="text-[#0f5742]">{a as string}</p>
                 </div>
               ))}
             </div>
@@ -82,7 +107,7 @@ export default async function ProductPage({ params }: Props) {
             <p className="text-gray-500">No reviews yet.</p>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {product.reviews.map((review) => (
+              {product.reviews.map((review: { id: Key | null | undefined; name: string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode> | null | undefined; rating: string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode> | null | undefined; comment: string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode> | null | undefined; }) => (
                 <div
                   key={review.id}
                   className="bg-white p-4 rounded-xl border border-[#d7f2e9] shadow-sm"

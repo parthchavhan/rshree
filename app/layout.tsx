@@ -28,7 +28,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
-      <body className="bg-offwhite">
+      <body className="bg-[#f9fefc]">
       <Preloader />
         <Navbar />
         <main>{children}</main>
