@@ -23,7 +23,7 @@ const testimonials = [
   },
   {
     id: 2,
-    name: "Michael Robinson",
+    name: "Rajesh Soni",
     role: "Loyal Customer",
     image: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750",
     stars: 5,
@@ -31,7 +31,7 @@ const testimonials = [
   },
   {
     id: 3,
-    name: "Sarah Thompson",
+    name: "Manav Jain",
     role: "Collector",
     image: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750",
     stars: 5,
@@ -39,7 +39,7 @@ const testimonials = [
   },
   {
     id: 4,
-    name: "Daniel Williams",
+    name: "Rafiq",
     role: "First-time Buyer",
     image: "https://images.pexels.com/photos/697509/pexels-photo-697509.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750",
     stars: 4,

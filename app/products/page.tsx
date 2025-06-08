@@ -1,29 +1,33 @@
-import prisma  from "@/app/lib/prisma";
-import Image from "next/image";
+// File: app/products/page.tsx
+import prisma from "@/app/lib/prisma";
 import Link from "next/link";
-import { Key, ReactElement, JSXElementConstructor, ReactNode, AwaitedReactNode, ReactPortal } from "react";
 
-export default async function ProductsPage() {
+interface SearchParams {
+  searchParams?: { category?: string };
+}
+
+export default async function ProductsPage({ searchParams }: SearchParams) {
+  const categoryId = searchParams?.category;
   const products = await prisma.product.findMany({
-    orderBy: { createdAt: "desc" },
+    where: categoryId ? { categoryId } : {},
     include: { category: true },
+    orderBy: { createdAt: "desc" },
   });
 
   return (
-    <div className="p-6 bg-[#f9f5f0] min-h-screen">
-      <h1 className="text-3xl font-bold text-[#8d6748] mb-6">All Products</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {products.map((product: { id: Key | null | undefined; images: (string | undefined)[]; name: string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | Promise<AwaitedReactNode> | null | undefined; shortDesc: string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode> | null | undefined; category: { name: string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode> | null | undefined; }; }) => (
-          <Link href={`/products/${product.id}`} key={product.id}>
-            <div className="bg-white shadow rounded-xl p-4 hover:shadow-lg transition">
+    <div className="min-h-screen bg-[#f9fefc] p-8">
+      <h1 className="text-3xl font-bold text-[#16543a] mb-6 text-center">Our Products</h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-7xl mx-auto">
+        {products.map((product) => (
+          <Link key={product.id} href={`/products/${product.id}`}>
+            <div className="border border-[#c59d5f] bg-white shadow-sm hover:shadow-lg p-6 rounded-xl transition">
               <img
-                src={String(product.images[0] || "/1.png")}
-                alt={String(product.name || "Product Image")}
-                className="w-full h-64 object-cover rounded"
+                src={product.images[0] || "/placeholder.png"}
+                alt={product.name}
+                className="w-full h-48 object-cover rounded-lg mb-4"
               />
-              <h2 className="text-xl font-semibold text-[#6b4c3b] mt-4">{String(product.name)}</h2>
-              <p className="text-sm text-gray-600">{String(product.shortDesc)}</p>
-              <p className="text-sm text-gray-500 italic mt-1">Category: {product.category.name}</p>
+              <h2 className="text-xl font-semibold text-[#16543a]">{product.name}</h2>
+              {product.shortDesc && <p className="text-sm text-gray-600 mt-1">{product.shortDesc}</p>}
             </div>
           </Link>
         ))}
